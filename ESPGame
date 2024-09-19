@@ -1,0 +1,128 @@
+
+/*
+ * Class: CMSC203 
+ * Instructor: Khandan Vahabzadeh Monshi
+ * Description: (Give a brief description for each Class)
+ * Due:09/18/2024
+ * Platform/compiler:Eclipse
+ * I pledge that I have completed the programming assignment 
+* independently. I have not copied the code from a student or   * any source. I have not given my code to any student.
+ * Print your Name here:Bishal Banjade
+*/
+import java.util.Random;
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+public class ESPGame {
+
+   // Defining the colors
+    public static String COLOR_BLACK = "Black";
+    public static String COLOR_WHITE = "White";
+    public static String COLOR_GRAY = "Gray";
+    public static String COLOR_SILVER = "Silver";
+    public static String COLOR_MAROON = "Maroon";
+    public static String  COLOR_RED = "Red";
+    public static String COLOR_PURPLE = "Purple";
+    public static String COLOR_FUCHSIA = "Fuchsia";
+    public static String COLOR_GREEN = "Green";
+    public static String COLOR_LIME = "Lime";
+    public static String COLOR_OLIVE = "Olive";
+    public static String COLOR_YELLOW = "Yellow";
+    public static String COLOR_NAVY = "Navy";
+    public static String COLOR_BLUE = "Blue";
+    public static String COLOR_TEAL = "Teal";
+    public static String COLOR_AQUA = "Aqua";
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        int correctGuesses = 0;
+
+        System.out.println("CMSC203 Assignment1: Test your ESP skills!");
+        System.out.println("Enter the filename: colors.txt");
+        System.out.println("There are sixteen colors from a file:");
+
+        //  displaying color list
+        System.out.println("1. " + COLOR_BLACK);
+        System.out.println("2. " + COLOR_WHITE);
+        System.out.println("3. " + COLOR_GRAY);
+        System.out.println("4. " + COLOR_SILVER);
+        System.out.println("5. " + COLOR_MAROON);
+        System.out.println("6. " + COLOR_RED);
+        System.out.println("7. " + COLOR_PURPLE);
+        System.out.println("8. " + COLOR_FUCHSIA);
+        System.out.println("9. " + COLOR_GREEN);
+        System.out.println("10. " + COLOR_LIME);
+        System.out.println("11. " + COLOR_OLIVE);
+        System.out.println("12. " + COLOR_YELLOW);
+        System.out.println("13. " + COLOR_NAVY);
+        System.out.println("14. " + COLOR_BLUE);
+        System.out.println("15. " + COLOR_TEAL);
+        System.out.println("16. " + COLOR_AQUA);
+
+        // Play 3 rounds
+        for (int round = 1; round <= 3; round++) {
+            System.out.println("\nRound " + round);
+            System.out.println("I am thinking of a color.");
+            System.out.println("Is it one of the list of colors above?");
+
+            // Randomly selecting a color
+            String selectedColor = getRandomColor(random.nextInt(16) + 1);
+
+            // Asking user to guess the color
+            System.out.print("Enter your guess: ");
+            String userGuess = scanner.nextLine().trim();
+
+            // Checking if its correct or wrong
+            if (userGuess.equalsIgnoreCase(selectedColor)) {
+                System.out.println("I was thinking of " + selectedColor + ". You guessed correctly!");
+                correctGuesses++;
+            } else {
+                System.out.println("I was thinking of " + selectedColor + ". You guessed wrong.");
+            }
+        }
+
+        // Display the result
+        System.out.println("\nGame Over! You guessed " + correctGuesses + " out of 3 correctly.");
+
+        // Asking for user information
+        System.out.print("\nEnter your name: ");
+        String userName = scanner.nextLine();
+
+        System.out.print("Describe yourself: ");
+        String description = scanner.nextLine();
+
+        System.out.print("Due Date (MM/DD/YY): ");
+        String dueDate = scanner.nextLine();
+
+        // Display user input
+        System.out.println("\nUser Name: " + userName);
+        System.out.println("User Description: " + description);
+        System.out.println("Due Date: " + dueDate);
+
+        scanner.close();
+    }
+
+    // color based on the random number
+    public static String getRandomColor(int randomIndex) {
+        switch (randomIndex) {
+            case 1: return COLOR_BLACK;
+            case 2: return COLOR_WHITE;
+            case 3: return COLOR_GRAY;
+            case 4: return COLOR_SILVER;
+            case 5: return COLOR_MAROON;
+            case 6: return COLOR_RED;
+            case 7: return COLOR_PURPLE;
+            case 8: return COLOR_FUCHSIA;
+            case 9: return COLOR_GREEN;
+            case 10: return COLOR_LIME;
+            case 11: return COLOR_OLIVE;
+            case 12: return COLOR_YELLOW;
+            case 13: return COLOR_NAVY;
+            case 14: return COLOR_BLUE;
+            case 15: return COLOR_TEAL;
+            case 16: return COLOR_AQUA;
+            default: return null;
+        }
+    }
+}
